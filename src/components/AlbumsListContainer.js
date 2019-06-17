@@ -3,6 +3,7 @@ import * as request from 'superagent'
 import AlbumsList from './AlbumsList'
 import { connect } from 'react-redux';
 import { helloWorld, addAlbum, setAlbums, getAlbums } from '../actions/test'
+import PhotoPageContainer from './PhotoPageContainer';
 
 class AlbumsListContainer extends Component {
   // state = {}
