@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import * as request from 'superagent'
 import AlbumsList from './AlbumsList'
+import { connect } from 'react-redux';
+import { helloWorld } from '../actions/test'
 
-export default class AlbumsListContainer extends Component {
+class AlbumsListContainer extends Component {
   state = {}
 
   componentDidMount() {
@@ -10,6 +12,8 @@ export default class AlbumsListContainer extends Component {
       .then(response => this.setState({
         albums: response.body
       }))
+
+      this.props.helloWorld('Alice', 'Something')
   }
 
   render() {
@@ -19,3 +23,5 @@ export default class AlbumsListContainer extends Component {
     )
   }
 }
+
+export default connect(null, {helloWorld})(AlbumsListContainer)
