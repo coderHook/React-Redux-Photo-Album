@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import * as request from 'superagent'
 import AlbumsList from './AlbumsList'
 import { connect } from 'react-redux';
-import { helloWorld, addAlbum, setAlbums, getAlbums } from '../actions/test'
-import PhotoPageContainer from './PhotoPageContainer';
+import { helloWorld, addAlbum, setAlbums, getAlbums, createAlbum } from '../actions/albums'
+import AddAlbumForm from './AddAlbumForm';
+
 
 class AlbumsListContainer extends Component {
   // state = {}
@@ -21,19 +21,19 @@ class AlbumsListContainer extends Component {
 
   render() {
     if(!this.props.albums) return 'Loading...'
-    console.log('render', this.props.albums)
-    return (
-      <AlbumsList albums={ this.props.albums } />
-    )
+    // console.log('render', this.props.albums)
+    return (<div>
+      <AlbumsList albums={this.props.albums} />
+      <AddAlbumForm createAlbum={this.props.createAlbum} />
+    </div>)
   }
 }
 
 const mapStateToProps = (state) => {
-  console.log('state abums', state)
   return {
     albums: state.albums
   }
 }
 
 
-export default connect(mapStateToProps, {helloWorld, addAlbum, setAlbums, getAlbums})(AlbumsListContainer)
+export default connect(mapStateToProps, {helloWorld, addAlbum, setAlbums, getAlbums, createAlbum})(AlbumsListContainer)

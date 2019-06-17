@@ -8,7 +8,7 @@ export default class PhotoPage extends Component {
 
         {this.props.photos.map(photo => {
             return (
-              <div>
+              <div key={photo.id}>
                  <p>{photo.title}</p>
                  <img src={`${photo.thumbnailUrl}`} alt=""/>
               </div>

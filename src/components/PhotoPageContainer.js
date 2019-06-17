@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PhotoPage from './PhotoPage'
 import { connect } from 'react-redux';
 import {getPhotosByAlbum} from '../actions/photos'
