@@ -1,4 +1,6 @@
-import { ADD_ALBUM, SET_ALBUMS } from '../actions/test'
+import { ADD_ALBUM, SET_ALBUMS, GET_ALBUMS } from '../actions/test'
+import * as request from 'superagent'
+
 
 
 export default (state = [], action = {}) => {
