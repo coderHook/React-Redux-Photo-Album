@@ -1,9 +1,22 @@
-const SET_PHOTOS = 'SET_PHOTOS'
+import * as request from  'superagent'
 
-export default function setPhotos(photos) {
+export const SET_PHOTOS = 'SET_PHOTOS'
+
+export function setPhotos(photos) {
   return {
     type: SET_PHOTOS,
-    photos: photos
+    payload: photos
   }
 }
 
+export function getPhotosByAlbum(id){
+  return function (dispatch){
+    request(`https://jsonplaceholder.typicode.com/photos?albumId=${id}`)
+    .then(response => {
+      console.log('PHOTOS!!', response.body)
+      dispatch(setPhotos(response.body))
+    }
+      )
+  }
+
+}

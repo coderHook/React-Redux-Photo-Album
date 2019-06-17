@@ -10,7 +10,7 @@ export default class AlbumsList extends Component {
         There are { this.props.albums.length } albums available.
 
         <ul>
-          { this.props.albums.map(album => <li key={album.id}><Link to="/albums/:id"> {album.title} </Link></li>)}
+          { this.props.albums.map(album => <li key={album.id}><Link to={`/albums/${album.id}`}> {album.title} </Link></li>)}
         </ul>
       </div>
     )

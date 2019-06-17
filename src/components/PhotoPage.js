@@ -4,9 +4,17 @@ export default class PhotoPage extends Component {
   render() {
     return (
       <div>
-        <h1>Photos in this album</h1>
+        <h1>{this.props.photos.length} Photos in this album</h1>
 
-        {this.props.photos.map(photo => <p>{photo.title}</p>)}
+        {this.props.photos.map(photo => {
+            return (
+              <div>
+                 <p>{photo.title}</p>
+                 <img src={`${photo.thumbnailUrl}`} alt=""/>
+              </div>
+            )
+        }
+        )}
       </div>
     )
   }
